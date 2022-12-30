@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>512</width>
-    <height>580</height>
+    <width>670</width>
+    <height>590</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>490</width>
+      <width>650</width>
       <height>490</height>
      </rect>
     </property>
@@ -31,9 +31,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>520</y>
-      <width>80</width>
-      <height>25</height>
+      <y>514</y>
+      <width>101</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -43,10 +43,10 @@
    <widget class="QTextEdit" name="fileNameEdit">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>520</y>
-      <width>391</width>
-      <height>25</height>
+      <x>120</x>
+      <y>514</y>
+      <width>541</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="undoRedoEnabled">
@@ -65,8 +65,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>512</width>
-     <height>21</height>
+     <width>670</width>
+     <height>22</height>
     </rect>
    </property>
   </widget>

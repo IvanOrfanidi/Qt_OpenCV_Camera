@@ -35,6 +35,7 @@ public:
 public slots:
     void startPlayVideo();
     void playVideo();
+    void clearVideo();
 
 private:
     Ui::MainWindow* _form;

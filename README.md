@@ -14,7 +14,7 @@ cmake --build .
 ### Build for Linux
 Run to script
 ```sh
-genqt.sh
+./genqt.sh
 cd build
 cmake -DCMAKE_BUILD_TYPE=Release ..
 cmake --build .

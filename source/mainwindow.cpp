@@ -42,8 +42,16 @@ void MainWindow::startPlayVideo()
     _capture.open(_form->fileNameEdit->toPlainText().toStdString());
     if (!_capture.isOpened()) {
         std::cerr << "Cannot open the video camera!" << std::endl;
+        clearVideo();
         return;
     }
 
     _timer.start(1);
+}
+
+void MainWindow::clearVideo()
+{
+    _frame = cv::Mat(_size, CV_8UC3, cv::Scalar(0, 0, 0));
+    const QImage qimg(_frame.data, _frame.cols, _frame.rows, _frame.step, QImage::Format_RGB888);
+    _form->label->setPixmap(QPixmap::fromImage(qimg.rgbSwapped()));
 }
