@@ -1,0 +1,38 @@
+stages:
+  - check
+  - build
+
+clang-format:
+  stage: check
+  script:
+    - git clone http://git.home.lan/root/check-clang-format.git
+    - cp check-clang-format/check-clang-format.py .
+    - python3 check-clang-format.py -r .
+
+gcc:
+  stage: build
+  before_script:
+    - bash genqt.sh
+  script:
+    - mkdir build
+    - cd build
+    - cmake -G "Unix Makefiles"
+      -DCMAKE_C_COMPILER=gcc
+      -DCMAKE_CXX_COMPILER=g++
+      -DCMAKE_BUILD_TYPE=Release
+      ..
+    - cmake --build .
+
+clang:
+  stage: build
+  before_script:
+    - bash genqt.sh
+  script:
+    - mkdir build
+    - cd build
+    - cmake -G "Unix Makefiles"
+      -DCMAKE_C_COMPILER=clang
+      -DCMAKE_CXX_COMPILER=clang++
+      -DCMAKE_BUILD_TYPE=Release
+      ..
+    - cmake --build .
