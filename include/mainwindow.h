@@ -43,7 +43,6 @@ private:
     cv::VideoCapture _capture;
     cv::Size _size;
     cv::Mat _frame;
-    mutable std::mutex _mtx;
 };
 
 #endif // MAINWINDOW_H

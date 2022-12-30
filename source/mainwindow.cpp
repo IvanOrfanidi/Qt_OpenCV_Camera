@@ -27,7 +27,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::playVideo()
 {
-    std::lock_guard<std::mutex> lock(_mtx);
     if (_capture.read(_frame)) {
         cv::resize(_frame, _frame, _size, 0, 0);
         const QImage qimg(_frame.data, _frame.cols, _frame.rows, _frame.step, QImage::Format_RGB888);
@@ -51,7 +50,7 @@ void MainWindow::startPlayVideo()
 
 void MainWindow::clearVideo()
 {
-    _frame = cv::Mat(_size, CV_8UC3, cv::Scalar(0, 0, 0));
+    _frame = cv::Mat(_size, CV_8UC3, cv::Scalar(255, 0, 0));
     const QImage qimg(_frame.data, _frame.cols, _frame.rows, _frame.step, QImage::Format_RGB888);
     _form->label->setPixmap(QPixmap::fromImage(qimg.rgbSwapped()));
 }
