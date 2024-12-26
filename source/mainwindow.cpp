@@ -38,7 +38,13 @@ void MainWindow::startPlayVideo()
 {
     _timer.stop();
 
-    _capture.open(_form->fileNameEdit->toPlainText().toStdString());
+    const std::string filename = _form->fileNameEdit->toPlainText().toStdString();
+    if (filename.empty()) {
+        _capture.open(cv::VideoCaptureAPIs::CAP_ANY);
+    } else {
+        _capture.open(filename);
+    }
+
     if (!_capture.isOpened()) {
         std::cerr << "Cannot open the video camera!" << std::endl;
         clearVideo();
